@@ -1,7 +1,6 @@
 import { List, Scroller } from '../windowing';
-import MacMockup from '@/assets/mac-mockup.webp';
+import MacMockup from '/assets/mac-mockup.webp';
 import * as styles from './MainPage.module.css';
-import { CSSProperties } from 'styled-components';
 import { PropsWithChildren } from 'react';
 import { type MockData, mockData } from './mockData';
 
@@ -64,7 +63,7 @@ function Description() {
   );
 }
 
-function Row({ data, style }: { data: MockData; style: CSSProperties }) {
+function Row({ data, style }: { data: MockData; style: React.CSSProperties }) {
   return (
     <li className={styles.row} key={data.id} style={style}>
       <div className={styles.item}>

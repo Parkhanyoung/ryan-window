@@ -1,5 +1,4 @@
 body {
-  font-family: 'Roboto', sans-serif;
   background-color: #f4f4f9;
 }
 
@@ -9,7 +8,7 @@ body {
   color: #ffffff;
   padding: 15px 0;
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .container {

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
-import GlobalStyle from '@/styles/globalStyle';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import MainPage from './components/MainPage';
+import './styles/global.css'
 
 const queryClient = new QueryClient();
 
@@ -23,7 +23,6 @@ const router = createBrowserRouter(routes, {
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <GlobalStyle />
       <RouterProvider router={router} />
     </QueryClientProvider>
   </React.StrictMode>,
