@@ -19,14 +19,6 @@ module.exports = {
         use: ['@svgr/webpack'],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|webp)$/i,
-        type: 'asset/resource',
-        generator: {
-          publicPath: './assets/',
-          outputPath: 'assets/',
-        },
-      },
-      {
         test: /\.css$/i,
         use: [
           'style-loader',
@@ -53,11 +45,6 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: 'index.html',
-      publicPath: './',
-    }),
     new ForkTsCheckerWebpackPlugin({
       async: false,
       typescript: {
