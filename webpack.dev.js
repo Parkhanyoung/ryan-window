@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const common = require('./webpack.common.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackInjectPreload = require('@principalstudio/html-webpack-inject-preload');
 
 module.exports = merge(common, {
   mode: 'development',
@@ -27,6 +28,18 @@ module.exports = merge(common, {
       template: './index.html',
       filename: 'index.html',
       publicPath: '/',
+    }),
+    new HtmlWebpackInjectPreload({
+      files: [
+        {
+          match: /.*\.webp$/, 
+          attributes: {
+            as: 'image', 
+            type: 'image/webp', 
+          },
+        },
+      ],
     })
+
   ]
 });

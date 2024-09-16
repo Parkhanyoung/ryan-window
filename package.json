@@ -15,8 +15,7 @@
     "@tanstack/react-query": "^5.51.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.24.1",
-    "styled-components": "^6.1.11"
+    "react-router-dom": "^6.24.1"
   },
   "devDependencies": {
     "@babel/core": "^7.24.9",
@@ -24,6 +23,7 @@
     "@babel/preset-react": "^7.24.7",
     "@babel/preset-typescript": "^7.24.7",
     "@eslint/js": "^9.7.0",
+    "@principalstudio/html-webpack-inject-preload": "^1.2.7",
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^29.5.12",
     "@types/react": "^18.3.3",
