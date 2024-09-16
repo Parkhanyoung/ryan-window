@@ -17,7 +17,7 @@ const routes = [
 ];
 
 const router = createBrowserRouter(routes, {
-  basename: '/',
+  basename: '/ryan-window',
 });
 
 root.render(
