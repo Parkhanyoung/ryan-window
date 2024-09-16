@@ -26,6 +26,18 @@ module.exports = {
           outputPath: 'assets/',
         },
       },
+      {
+        test: /\.css$/i,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
     ],
   },
   resolve: {

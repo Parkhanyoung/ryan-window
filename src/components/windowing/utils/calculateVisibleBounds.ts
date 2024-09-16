@@ -3,13 +3,14 @@ interface CalculateVisibleBoundsParams {
   offsetTop: number;
   itemHeight: number;
   scrollerHeight: number;
+  totalLength: number;
   overscanCount: number;
 }
 
 interface CalculateVisibleBoundsReturn {
   start: number;
   end: number;
-  scrollOffset?: number;
+  scrollOffset: number;
 }
 
 export const calculateVisibleBounds = ({
@@ -17,7 +18,8 @@ export const calculateVisibleBounds = ({
   offsetTop,
   itemHeight,
   scrollerHeight,
-  overscanCount
+  totalLength,
+  overscanCount,
 }: CalculateVisibleBoundsParams): CalculateVisibleBoundsReturn => {
   const scrolledHeight = Math.max(scrollTop - offsetTop, 0);
   const scrolledItemCount = Math.floor(scrolledHeight / itemHeight);
@@ -31,7 +33,7 @@ export const calculateVisibleBounds = ({
 
   return {
     start: Math.max(start - startOverscanCount, 0),
-    end: end + overscanCount,
-    scrollOffset: itemHeight * scrolledItemCount - scrollAdjustment
+    end: Math.min(end + overscanCount, totalLength),
+    scrollOffset: itemHeight * scrolledItemCount - scrollAdjustment,
   };
 };

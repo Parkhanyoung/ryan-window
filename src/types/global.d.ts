@@ -9,3 +9,5 @@ declare module '*.svg' {
 declare module '*.webp' {
   export default string;
 }
+
+declare module '*.module.css';

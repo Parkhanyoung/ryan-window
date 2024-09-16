@@ -1,25 +1,28 @@
 import { useWindowingContext } from '../hooks/useWindowingContext';
 import { calculateVisibleBounds } from '../utils/calculateVisibleBounds';
+import WindowingInfo from './WindowingInfo';
+
+type WindowingChildren<T> = ({
+  index,
+  data,
+  style,
+}: {
+  index: number;
+  data: T;
+  style: Record<string, string | number>;
+}) => React.ReactNode;
 
 interface WindowingListProps<T> {
-  dataList: T[];
+  data: T[];
   itemHeight: number;
   offsetTop: number;
   overscanCount?: number;
-  children: ({
-    index,
-    data,
-    style,
-  }: {
-    index: number;
-    data: T;
-    style: Record<string, string | number>;
-  }) => React.ReactNode;
+  children: WindowingChildren<T>;
 }
 
 const List = <T,>({
   itemHeight,
-  dataList,
+  data,
   offsetTop,
   overscanCount = 3,
   children,
@@ -31,20 +34,23 @@ const List = <T,>({
     offsetTop,
     itemHeight,
     scrollerHeight,
+    totalLength: data.length,
     overscanCount,
   });
 
-  const estimatedHeight = itemHeight * dataList.length;
+  const estimatedHeight = itemHeight * data.length;
 
   return (
     <div style={{ height: estimatedHeight }}>
       <ul style={{ transform: `translateY(${scrollOffset}px)` }}>
-        {dataList.slice(start, end).map((data, index) => {
+        {data.slice(start, end).map((data, index) => {
           const style = { height: itemHeight };
 
           return children({ index, data, style });
         })}
       </ul>
+      {/* The component below is for explanation purposes only */}
+      <WindowingInfo data={data} scrollOffset={scrollOffset} start={start} end={end} />,
     </div>
   );
 };

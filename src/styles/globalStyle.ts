@@ -2,6 +2,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
+body {
+  min-width: 700px;
+}
+
 html,
   body,
   div,
@@ -36,7 +40,6 @@ html,
   samp,
   small,
   strike,
-  strong,
   sub,
   sup,
   tt,
