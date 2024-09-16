@@ -22,7 +22,7 @@ module.exports = {
         test: /\.(png|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
         generator: {
-          publicPath: 'http://localhost:3000/assets/',
+          publicPath: './assets/',
           outputPath: 'assets/',
         },
       },
