@@ -1,7 +1,5 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   entry: './src/index.tsx',
@@ -11,12 +9,6 @@ module.exports = {
         test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: ['babel-loader'],
-      },
-      {
-        test: /\.svg$/i,
-        issuer: /\.[jt]sx?$/,
-
-        use: ['@svgr/webpack'],
       },
       {
         test: /\.css$/i,
@@ -51,6 +43,5 @@ module.exports = {
         configFile: path.resolve(__dirname, 'tsconfig.json'),
       },
     }),
-    new Dotenv(),
   ],
 };

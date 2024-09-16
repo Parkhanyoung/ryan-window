@@ -22,7 +22,7 @@ export default function MainPage() {
 }
 
 function Header() {
-  return <header className={styles.header}>⚛️ How to Implement Windowing</header>;
+  return <header className={styles.header}>⚛️ Windowing: Efficiently Render Large Lists</header>;
 }
 
 function Container({ children }: PropsWithChildren) {
